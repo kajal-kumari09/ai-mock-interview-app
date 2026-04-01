@@ -5,17 +5,17 @@ A simple AI-based mock interview application that helps users practice interview
 ---
 
 ## 🚀 Features
-- AI-generated interview questions
-- Practice answer input system
-- Instant feedback system
-- Score tracking
-- Clean and simple UI
+- AI-generated interview questions  
+- Practice answer input system  
+- Instant feedback system  
+- Score tracking  
+- Clean and simple UI  
 
 ---
 
 ## 🛠️ Tech Stack
-- Flutter
-- Dart
+- Flutter  
+- Dart  
 
 ---
 
