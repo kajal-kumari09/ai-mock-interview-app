@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Quiz Arena</title>
+    <link rel="stylesheet" href="{% static 'quiz/styles.css' %}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="hero-card">
+            <div class="hero-copy">
+                <p class="eyebrow">AI Voice Interview Style Quiz</p>
+                <h1>Voice Quiz Arena</h1>
+                <p class="intro">
+                    Choose Python or Java, let AI generate a longer interview, and hear each question asked automatically.
+                    You can answer by speaking or typing, and the session continues question by question with a timed review.
+                </p>
+            </div>
+
+            <form id="quiz-form" class="control-panel">
+                <label>
+                    Topic
+                    <select id="topic" name="topic">
+                        <option value="python" selected>Python</option>
+                        <option value="java">Java</option>
+                    </select>
+                </label>
+
+                <label>
+                    Difficulty
+                    <select id="difficulty" name="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </label>
+
+                <label>
+                    Number of questions
+                    <input id="count" name="count" type="number" min="5" max="25" value="12" />
+                </label>
+
+                <div class="button-row">
+                    <button type="submit" class="primary-btn">Start AI Interview</button>
+                    <button type="button" id="speak-toggle" class="secondary-btn">Mute Voice</button>
+                    <button type="button" id="repeat-btn" class="secondary-btn">Repeat Question</button>
+                </div>
+
+                <p id="status" class="status">Ready to start an interview session.</p>
+                <p class="status">Voice disclosure: the interviewer voice is AI-generated.</p>
+            </form>
+        </section>
+
+        <section class="quiz-grid">
+            <article class="question-card">
+                <div class="card-topline">
+                    <span id="source-badge" class="badge">Waiting</span>
+                    <span id="progress-label">Question 0 / 0</span>
+                </div>
+
+                <h2 id="question-title">Your question will appear here.</h2>
+
+                <label class="answer-box">
+                    Your answer
+                    <textarea id="answer-input" rows="4" placeholder="Speak or type your answer here..."></textarea>
+                </label>
+
+                <div class="button-row">
+                    <button type="button" id="listen-btn" class="primary-btn">Answer by Voice</button>
+                    <button type="button" id="next-btn" class="secondary-btn">Save & Ask Next</button>
+                </div>
+            </article>
+
+            <aside class="score-card">
+                <h3>Session</h3>
+                <div class="metric">
+                    <span>Score</span>
+                    <strong id="score-display">0 / 0</strong>
+                </div>
+                <div class="metric">
+                    <span>Mode</span>
+                    <strong id="mode-display">Auto Voice Interview</strong>
+                </div>
+                <div class="metric">
+                    <span>Speech input</span>
+                    <strong id="speech-support">Checking...</strong>
+                </div>
+                <div class="metric">
+                    <span>Interview state</span>
+                    <strong id="interview-state">Idle</strong>
+                </div>
+                <div class="metric">
+                    <span>Average response time</span>
+                    <strong id="time-display">0.0s</strong>
+                </div>
+                <button type="button" id="finish-btn" class="primary-btn wide-btn">Finish Quiz</button>
+                <div id="results" class="results"></div>
+            </aside>
+        </section>
+    </main>
+    <script src="{% static 'quiz/app.js' %}"></script>
+</body>
+</html>
