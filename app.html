@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interview Practice App</title>
+</head>
+<body>
+
+<h1>AI Interview Practice</h1>
+
+<p id="question">Click button to start</p>
+
+<button onclick="getQuestion()">Get Question</button>
+
+<br><br>
+
+<input id="answer" placeholder="Type your answer">
+
+<br><br>
+
+<button onclick="checkAnswer()">Submit</button>
+
+<p id="result"></p>
+
+<script>
+let questions = [
+  "Tell me about yourself?",
+  "What are your strengths?",
+  "Why should we hire you?"
+];
+
+let index = 0;
+
+function getQuestion() {
+  document.getElementById("question").innerText = questions[index];
+  index = (index + 1) % questions.length;
+}
+
+function checkAnswer() {
+  let ans = document.getElementById("answer").value;
+
+  if(ans.length < 5){
+    document.getElementById("result").innerText = "❌ Too short";
+  } else {
+    document.getElementById("result").innerText = "✅ Good Answer";
+  }
+}
+</script>
+
+</body>
+</html>
